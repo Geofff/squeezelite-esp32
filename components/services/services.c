@@ -25,11 +25,14 @@
 #include "accessors.h"
 #include "messaging.h"
 #include "buttons.h"
+#include "rotary_encoder.h"
+#include "infrared.h"
+#include "led.h"
+#include "gpio_exp.h"
+#include "battery.h"
+#include "monitor.h"
+#include "card_reader.h"
 #include "services.h"
-
-extern void battery_svc_init(void);
-extern void monitor_svc_init(void);
-extern void led_svc_init(void);
 
 int i2c_system_port = I2C_SYSTEM_PORT;
 int i2c_system_speed = 400000;
@@ -417,4 +420,5 @@ void services_init(void) {
 	led_svc_init();
 	battery_svc_init();
 	monitor_svc_init();
+	card_reader_init();
 }
